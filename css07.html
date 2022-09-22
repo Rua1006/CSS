@@ -12,8 +12,8 @@
         span, a, strong, em, ins, input*/
         /*inline-block 방식 : 한 줄에 여러 개 요소가 표시되고, 크기 지정도 가능함 */
         /*display : block | inline | inline-block | none - 표시속성*/
-        /*테이블 관련 : table, table-row, table-cell*/
-        /*반응형 관련 : flex, grid*/
+            /*테이블 관련 : table, table-row, table-cell*/
+            /*반응형 관련 : flex, grid*/
         /*visibility : visible | hidden - 가시속성*/
         /*opacity : 0~1 까지의 실수 - 불투명도*/
         /*width : px | % | em | vh | vw 단위 숫자 - 너비(폭) 지정*/
@@ -23,9 +23,31 @@
         /*margin : 상/우/하/좌, 상/하 좌/우, 상 우 하 좌 -> 바깥여백*/
             /* margin-top, margin-right, margin-bottom, margin-left */
         /*padding : 상/우/하/좌, 상/하 좌/우, 상 우 하 좌 -> 안여백*/
-        .box  { display: inline;}
+            /* padding-top, padding-right, padding-bottom, padding-left */ 
+    body, html { scroll-behavior:smooth; scroll-snap-type: y mandatory; }    
+    .box { display:inline-block; background-color:gold; }  
+    #box1 { display:block; margin-top:30px; margin-bottom:30px; width:200px; text-align: center; line-height: 200px;  } 
+    #box2 { display:inline; margin:50px; line-height: 200px; }
+    #box3 { width: 400px; height:100px; opacity:0.7; overflow:scroll; }
+    #box5 { display:none; }
+    #box6 { width: 150px; height: 150px; margin:100px;  overflow:auto; margin-top:40px; }
+    #box7 { visibility: hidden; }
+    #box8 { width: 150px; height: 150px; overflow-x:hidden; 
+    overflow-y: auto; }
+    #box9 { width: 150px; height: 150px; margin:20px 40px; 
+    border:5px solid red; }
+    #box10 { width: 150px; height: 150px; margin:20px 40px 60px 80px;  padding:40px; border:5px solid red; box-sizing:border-box; overflow:hidden; }
+    .data { display:block; }    
 
-        .data { display: block; }
+    /*border : border-width(선두께) border-style(선종류) border-color(선색상)-외곽선설정 ->outline*/
+    #data1 { width: 300px; height: 300px; border: 10px solid blue;}
+    #data2 { width: 300px; height: 200px; border: 10px solid red; border-top: 5px solid blue; border-bottom: 10px dotted red; border-left: 20px dashed gold; border-right: 40px double green; margin: 20px; }
+    #data3 { width: 200px; height: 200px; margin:50px; border: 20px solid orange; border-right: 20px dotted lime; border-bottom-color: blueviolet;}
+    #data4 { width: 200px; height: 200px; border: 4px solid red; border-radius: 30px; margin: 40px;}
+    #data5 { width: 200px; height: 200px; border: 4px solid red; border-radius: 20px 80px; margin: 40px;}
+    #data6 { width: 200px; height: 200px; border: 4px solid red; border-radius: 20px 40px 60px 80px; margin: 40px;}
+    #data7 { width: 200px; height: 200px; border: 4px solid blue; border-top-left-radius: 30px; margin: 40px;}
+    #data8 {}
     </style>
 </head>
 <body>
