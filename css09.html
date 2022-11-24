@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS transition</title>
+    <style>
+    * {margin: 0; padding: 0;}
+    body, html {width: 100%;}
+    ul {list-style: none;}
+    a {text-decoration: none;}
+    .container {width: 1280px; margin: 0 auto;}
+    .container:after {content: ""; display: block; clear: both; width: 100%;}
+    .tra_box, .ani_box {width: 200px; height: 200px; line-height: 140px; font-weight: 600; font-size: 20px; text-align: center; border: 1px solid #333; overflow: hidden; position: relative;}
+    .tra_box span, .ani_box span {display: block; width: 200px; height: 200px;}
+    .tra_box .ori, .ani_box .ori {background-color: #fff; color: #333;}
+    .tra_box .hv {background-color: blueviolet; color: #fff; position: absolute; top: 200px; left: 0; transition-duration: 2s;}
+    .tra_box:hover .hv {top:0;}
+    .ani_box .hv {background-color: coral; color: #fff; position: absolute; top:200px; left: 0; animation-duration: 2s; animation-name: ani1; animation-fill-mode:both; }
+    .ani_box:hover .hv {animation-duration: 2s; animation-name: ani2; animation-fill-mode: both;}
+    @keyframes ani1{
+        0%{top:0px; background-color: #fff;}
+        50%{background-color: cornflowerblue;}
+        100%{top: 200px; background-color: darkslategray;}
+    }
+    @keyframes ani2 {
+        from{top:200px; background-color: violet;}
+        50% {background-color: darkgreen;}
+        to {top: 0; background-color: chocolate;}
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="main_tit">CSS Animation</h1>
+        <p>CSS 애니메이션의 종류에는 transition, animation, transform 등이 사용된다.</p>
+        <h2 class="title">Transition</h2>
+        <div class="tra_box">
+            <span class="ori">원래 데이터</span>
+            <span class="hv">호버 데이터</span>
+        </div>
+        <br><hr><br>
+        <h2 class="title">Animation</h2>
+        <div class="ani_box">
+            <span class="ori">원래 데이터</span>
+            <span class="hv">호버 데이터</span>
+        </div>
+    </div>
+</body>
+</html>
