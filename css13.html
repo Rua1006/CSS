@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Mask</title>
+    <script src="prefixfree.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body, html{
+            width: 100%;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        h2, h3{
+            clear: both;
+            width: 1280px;
+            margin: 0 auto;
+            padding-top: 1.5rem;
+            padding-bottom: 0.5rem;
+        }
+        .container{
+            clear: both;
+            width: 1280px;
+            margin: 0 auto;
+        }
+        .container:after{
+            content: "";
+            clear: both;
+            display: block;
+        }
+        .page{
+            clear: both;
+            width: auto;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .page:after{
+            content: "";
+            clear: both;
+            display: block;
+        }
+        .page_tit{
+            color:palegreen;
+            text-shadow: 2px 2px 2px #fff;
+        }
+        .mask{
+            mask-image:url("ex/pngwing.png");
+            mask-repeat: no-repeat;
+            mask-position: center;
+            mask-size: 50%;
+        }
+        #page2 .mask{
+            mask-size: 0.5%;
+            animation-name: ani1;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        @keyframes ani1 {
+            0%{ mask-size:0.5%;}
+            100%{ mask-size:400%;}
+        }
+        #page3 .mask{
+            mask-size:15% ;
+            mask-position: left;
+            animation-name: ani2;
+            animation-duration: 1.5s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        @keyframes ani2 {
+            0%{mask-position: top left;}
+            100%{mask-position: top right;}
+        }
+        #page4, #page5, #page6, #page7, #page8, #page9, #page10 {
+            position: relative;
+        }
+        .clip {
+            position: absolute;
+            width: 900px;
+            height: 900px;
+            top: 50%;
+            left: 50%;
+            margin-left: -450px;
+            margin-top: -450px;
+            background-color: cornflowerblue;
+            background-image:url("./ex/eyes-ga7212c13d_1280.png");
+            background-repeat: no-repeat;
+            background-position: center center;
+            padding: 10px;
+        }
+        #clip1 {
+            clip-path: circle(0%);
+            animation-name: ani3;
+            animation-duration: 1.5s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        @keyframes ani3 {
+            0% {clip-path: circle(0%);}
+            100% {clip-path: circle(50%)}
+        }
+        #clip2 {
+            clip-path: ellipse(25% 40% at 50% 50%);
+            animation-name: ani4;
+            animation-duration: 1.5s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        @keyframes ani4 {
+            0% {clip-path: ellipse(0% 0% at 50% 50%);}
+            100% {clip-path: ellipse(25% 40% at 50% 50%);}
+        }
+        #clip3 {
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            animation-name: ani5;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        @keyframes ani5 {
+            0% {clip-path: ellipse(0% 0% at 50% 50%);}
+            20% {clip-path: polygon(0% 30%, 0% 50%, 50% 50%);}
+            60% {clip-path: polygon(30% 0%, 0% 50%, 50% 50%);}
+            70% {clip-path: polygon(40% 20%, 0% 75%, 0% 0%);}
+            100% {clip-path: polygon(50% 0%, 0% 100%, 100% 100%);}
+        }
+        #clip4 {
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+        #clip5 {
+            clip-path: inset(5% 20% 15% 10%);
+        }
+        #clip6 {
+            clip-path: rect(0px, 100px, 100px, 0px);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="page" id="page1">
+        <h3>Test img Ori</h3>
+        <img src="ex/eyes-ga7212c13d_1280.png" alt="test1">
+    </div>
+    <div class="page" id="page2">
+        <h3 class="page_tit">Test img Mask</h3>
+        <div class="mask" id="mask">
+            <img src="ex/eyes-ga7212c13d_1280.png" alt="mask">
+        </div>
+    </div>
+    <div class="page" id="page3">
+        <h3 class="page_tit">Test img Mask ani</h3>
+        <div class="mask" id="mask">
+            <img src="ex/eyes-ga7212c13d_1280.png" alt="mask">
+        </div>
+    </div>
+    <div class="page" id="page4">
+        <h3>Test img Mask Clip1</h3>
+        <div clas="clip" id="clip1">
+            <img src="ex/eyes-ga7212c13d_1280.png" alt="test1">
+        </div>
+    </div>
+    <div class="page" id="page5">
+        <h3>Test img Mask Clip2</h3>
+        <div clas="clip" id="clip2">
+            <img src="ex/eyes-ga7212c13d_1280.png" alt="test1">
+        </div>
+    </div>
+    <div class="page" id="page6">
+        <h3>Test img Mask Clip3</h3>
+        <div clas="clip" id="clip3">
+            <img src="ex/eyes-ga7212c13d_1280.png" alt="test1">
+        </div>
+    </div>
+    <div class="page" id="page7">
+        <h3>Test img Mask Clip3</h3>
+        <div clas="clip" id="clip4">
+            <img src="ex/eyes-ga7212c13d_1280.png" alt="test1">
+        </div>
+    </div>
+</body>
+</html>

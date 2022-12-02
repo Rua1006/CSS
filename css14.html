@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS transform 변형</title>
+    <script src="prefixfree.min.js"></script>
+    <style>
+        .page{
+            clear: both;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        .page:after{
+            content: "";
+            clear: both;
+            display: block;
+        }
+        .page_tit{
+            color: cornsilk;
+            text-shadow: 2px 2px 2px #fff;
+        }
+        .shap{
+            display: block;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            background-color: rgb(66, 155, 136);
+            border-radius:60px;
+            text-align: center;
+            position: relative;
+            font-size: 30px;
+            color: #fff;
+        }
+        .shape1{
+            animation-name: ani1;
+            animation-duration: 2.5s;
+            animation-fill-mode: both;
+            animation-iteration-count: infinite;
+        }
+        @keyframes ani1 {
+            0% {transform:translateX(0px) translateY(0px) rotate(0deg) scale(0.5);}
+            50% {transform:translateX(300px) translateY(0px) rotate(720deg) scale(1);}
+            100% {transform:translateX(600px) translateY(600px) rotate(0deg) scale(1.5);}
+        }
+        .shape2{
+            border-radius: 0px;
+            background-color: blueviolet;
+            transform-origin: 50% 100%;
+            animation-name: ani2;
+            animation-duration: 2.5s;
+            animation-fill-mode: both;
+            animation-iteration-count: infinite;
+        }
+        @keyframes ani2 {
+            0% {transform: skew(0deg) translateX(0px);}
+            50% {transform: skew(60deg) translateX(500px);}
+            100% {transform: skew(-60deg) translateX(0px);}
+        }
+        .shape3{
+            animation-name: ani3;
+            animation-duration: 10s;
+            animation-fill-mode: both;
+            animation-iteration-count: infinite;
+            transform-origin: 20% 40%;
+        }
+        @keyframes ani3 {
+            0% {transform: rotate(0deg) translateX(0px);}
+            50% {transform: rotate(560deg) translateX(300px);}
+            100% {transform: rotate(-560deg) translateX(0px);}
+        }
+        #page3 .container{
+            margin-top: 100px;
+            padding-top: 100px;
+            perspective: 500px;
+        }
+        .box {
+            animation-name:box1;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            animation-fill-mode: both;
+            transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            transform-style: preserve-3d;
+            transform-origin: 100px 100px;
+        }
+        @keyframes box1 {
+            0% {transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);}
+            100% {transform: rotateX(720deg) rotateY(720deg) rotateZ(720deg);}
+        }
+        .box span {
+            display: block;
+            width: 200px;
+            height: 200px;
+            position: absolute;
+        }
+        .box .item1{
+            background-color: gold;
+            transform: rotateY(0deg) translate3d(0px, 0px, -100px);
+        }
+        .box .item2{
+            background-color: silver;
+            transform: rotateY(90deg) translate3d(0px, 0px, -100px);
+        }
+        .box .item3{
+            background-color: crimson;
+            transform: rotateY(180deg) translate3d(0px, 0px, -100px);
+        }
+        .box .item4{
+            background-color: orange;
+            transform: rotateY(270deg) translate3d(0px, 0px, -100px);
+        }
+        .box .item5{
+            background-color: skyblue;
+            transform: rotateX(90deg) translate3d(0px, 0px, -100px);
+        }
+        .box .item6{
+            background-color: darkolivegreen;
+            transform: rotateX(270deg) translate3d(0px, 0px, -100px);
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="shap shape1">
+            <p class="page_tit">=^=
+            </p>
+        </div>
+        <div class="shap shape1">
+            <p class="page_tit">믐
+            </p>
+        </div>
+    </div>
+    <div class="page">
+        <div class="shap shape2">
+            <p class="page_tit">=^=
+            </p>
+        </div>
+        <div class="shap shape2">
+            <p class="page_tit">믐
+            </p>
+        </div>
+    </div>
+    <div class="page">
+        <div class="shap shape3">
+            <p class="page_tit">=^=
+            </p>
+        </div>
+        <div class="shap shape3">
+            <p class="page_tit">믐
+            </p>
+        </div>
+    </div>
+    <div class="container" id="page3">
+        <div class="box"> 
+            <span class="item1"></span>
+            <span class="item2"></span>
+            <span class="item3"></span>
+            <span class="item4"></span>
+            <span class="item5"></span>
+            <span class="item6"></span>
+        </div>
+    </div>    
+</body>
+</html>

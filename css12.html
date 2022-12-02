@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 필터 적용</title>
+
+    <style>
+    .page {
+        clear: both; 
+        width: 100vh; 
+        height: 100vh; 
+        background-image:url(ex/cat-g573640a21_1920.jpg);
+        background-size: 100% auto; 
+        background-repeat: no-repeat; 
+        background-position: center center; 
+    }
+    .page::after{
+        content: ""; 
+        clear: both; 
+        display: block;
+    }
+    .page_tit {
+        color: seagreen; 
+        text-shadow: 2px 2px 2px #fff; 
+        font-size: 30px;
+    }
+    /* 페이지별 필터 적용 */
+    #page1 { 
+        filter: none;
+    }
+    #page2 { 
+        filter: blur(5px);
+    }
+    #page3 { 
+        filter: brightness(200%);
+    }
+    #page4 { 
+        filter: contrast(200%);
+    }
+    #page5 { 
+        filter: drop-shadow(8px 8px 10px gray);
+    }
+    #page6 { 
+        filter: grayscale(50%);
+    }
+    #page7 { 
+        filter: hue-rotate(90deg);
+    }
+    #page8 { 
+        filter: invert(100%);
+    }
+    #page9 { 
+        filter: opacity(30%);
+    }
+    #page10 {
+         filter: saturate(8);
+        }
+    #page11 { 
+        filter: sepia(100%);
+    }
+    #page12 { 
+        filter: contrast(200%) grayscale(150%);
+    }
+    #page13 {
+        animation-name: ani1;
+        animation-duration: 30s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-out;
+    }
+    @keyframes ani1 {
+        0%  { filter: none;}
+        10% { filter: blur(5px);}
+        15% { filter: none;}
+        20% { filter: brightness(200%)} 
+        25% { filter: none;}
+        30% { filter: contrast(200%)}
+        35% { filter: none;}
+        40% { filter: drop-shadow(8px 8px 10px gray)}
+        45% { filter: none;}
+        50% { filter: grayscale(50%)}
+        55% { filter: none;}
+        60% { filter: hue-rotate(90deg)}
+        65% { filter: none;}
+        70% { filter: invert(100%)}
+        75% { filter: none;}
+        80% { filter: opacity(30%)}
+        85% { filter: none;}
+        90% { filter: saturate(8)}
+        95% { filter: none;}
+        100% { filter: sepia(100%)}
+    }
+    </style>
+</head>
+<body>
+    <div class="page" id="page1">
+        <p class="page_tit">Page1 Filter-none</p>
+    </div>
+    <div class="page" id="page2">
+        <p class="page_tit">Page2 Filter-blur(5px)</p>
+    </div>
+    <div class="page" id="page3">
+        <p class="page_tit">Page3 Filter-brightness(200%)</p>
+    </div>
+    <div class="page" id="page4">
+        <p class="page_tit">Page4 Filter-contrast(200%)</p>
+    </div>
+    <div class="page" id="page5">
+        <p class="page_tit">Page5 Filter-drop-shadow(8px 8px 10px gray)</p>
+    </div>
+    <div class="page" id="page6">
+        <p class="page_tit">Page6 Filter-grayscale(50%)</p>
+    </div>
+    <div class="page" id="page7">
+        <p class="page_tit">Page7 Filter-hue-rotate(90deg)</p>
+    </div>
+    <div class="page" id="page8">
+        <p class="page_tit">Page8 Filter-invert(100%)</p>
+    </div>
+    <div class="page" id="page9">
+        <p class="page_tit">Page9 Filter-opacity(30%)</p>
+    </div>
+    <div class="page" id="page10">
+        <p class="page_tit">Page10 Filter-saturate(8)</p>
+    </div>
+    <div class="page" id="page11">
+        <p class="page_tit">Page11 Filter-sepia(100%)</p>
+    </div>
+    <div class="page" id="page12">
+        <p class="page_tit">Page12 Filter-contrast(200%) grayscale(150%)</p>
+    </div>
+    <div class="page" id="page13">
+        <p class="page_tit">Page13 Filter-animation</p>
+    </div>
+</body>
+</html>
